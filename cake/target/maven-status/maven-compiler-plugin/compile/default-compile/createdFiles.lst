@@ -1,0 +1,6 @@
+com\orine\controller\MemberController.class
+com\orine\model\Member.class
+com\orine\dao\impl\MemberDaoImpl.class
+com\orine\service\MemberService.class
+com\orine\dao\MemberDao.class
+com\orine\service\impl\MemberServiceImpl.class

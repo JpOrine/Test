@@ -1,0 +1,36 @@
+
+/************最上边头部************/
+html, body{ height: 100%; overflow: hidden; background: #f7f7f7; }
+.top_head{ width: 100%; height: 50px; background: #0997F7; color: #EFF8FE;}
+em{ font-style: normal; }
+.left_content{ float: left; }
+.right_content{ float: right; }
+.top_head .logo{ float: left; width: 300px; height: 100%; }
+.top_head .logo h1{ font-size: 25px; margin-top: 14px; margin-left: 40px; }
+.top_head .user_show{ float: right; width: 300px; height: 100%; }
+.user_o{ margin-top: 16px; }
+.user_o a{ color: #EFF8FE; }
+.user_o a:hover{ color: #F7947E; }
+
+/*************nav导航******************/
+.top_nav{ position:relative; width: 100%; height: 50px; background: #5EEEF6;}
+.top_nav .content{ width: 70%; height: 100%; margin: 0 auto; }
+.top_nav .content .active{ background: #f7f7f7; border-top-left-radius: 6px; border-top-right-radius: 6px; }
+.top_nav .content .active a{ color: #000; }
+.top_nav .content ul{ height: 100%; }
+.top_nav .content ul li{ cursor: pointer; float: left; padding: 0 20px; height: 100%; line-height: 50px; margin: 0 5px;}
+.top_nav .content ul li a{ color: #1C83FA }
+.sideBar{ float: left; width: 14%; height: 90%; background: #5EEEF6; }
+.sideBar .content{ width: 100%; height: 50%; margin: 50px 0;}
+.sideBar .content .tab-pane{ display: none; }
+.sideBar .content ul{ width: 100%; }
+.sideBar .content ul li{ padding: 10px 50px; cursor: pointer; }
+.sideBar .content .active { display: block; }
+.sideBar .content .action{ background: #dfdfdf; }
+
+/*************内容区*******************/
+.containt{ float: left; width: 80%; height: 80%; margin: 20px; }
+
+
+
+
