@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
-html{background-image: url("images/admin_bc.jpg");  }
+html{background-image: url("../../images/admin/admin_bc.jpg");  }
 /* Main CSS */
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
@@ -9,8 +9,8 @@ img{ position: relative; top: 12px; cursor: pointer; }
 em{ width: 30px; height: 30px; display: inline-block; position: relative; top: 10px; left: 5px; }
 
 .codeRestar{ display: none; }
-.codeOk{ background-image: url("images/code_ok.png"); }
-.codeError{ background-image: url("images/code_error.png"); }
+.codeOk{ background-image: url("../../images/admin/code_ok.png"); }
+.codeError{ background-image: url("../../images/admin/code_error.png"); }
  
 body {
     font-family: sans-serif;

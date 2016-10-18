@@ -33,6 +33,17 @@ public class AdminController {
 	@Resource
 	private AdminService adminService;
 	
+	@ResponseBody
+	@RequestMapping(value="/editpassword", method=RequestMethod.POST)
+	public String EditPassword(HttpServletRequest request, HttpServletResponse response, HttpSession session){
+		String new_pwd = request.getParameter("newpass");
+		String name = (String) session.getAttribute("UserName");
+		Admin admin = adminService.findAdminByUN(name);
+		admin.setPassword(new_pwd);
+		adminService.updateAdmin(admin);
+		return admin.getPassword();
+	}
+	
 	/**
 	 * ajax验证 验证码
 	 * @param request
@@ -75,6 +86,12 @@ public class AdminController {
 		return map;
 	}
 	
+	/**
+	 * 登出
+	 * @param session
+	 * @param request
+	 * @param response
+	 */
 	@ResponseBody
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public void logout(HttpSession session, HttpServletRequest request, HttpServletResponse response){

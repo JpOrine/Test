@@ -2,13 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1">
     <title>漂亮的easyui后台框架演示-css后台模板-www.16sucai.com</title>
-    <link href="../css/default.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../js/themes/default/easyui.css" />
-    <link rel="stylesheet" type="text/css" href="../js/themes/icon.css" />
-    <script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.easyui.js"></script>
-
-	<script type="text/javascript" src="../js/outlook2.js"> </script>
+    <link href="../admin/css/default.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../admin/js/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../admin/js/themes/icon.css" />
+    <script type="text/javascript" src="../admin/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="../admin/js/jQuery.easyui.js"></script>
+	<script type="text/javascript" src='../admin/js/outlook2.js'> </script>
 
     <script type="text/javascript">
 	 var _menus = {"menus":[
@@ -77,13 +76,26 @@
                 msgShow('系统提示', '两次密码不一至！请重新输入', 'warning');
                 return false;
             }
+            
+            $.ajax({
+            	type: "post",
+            	url: "../../admin/editpassword",
+            	data: { newpass : $newpass.val() },
+            	data: "json",
+            	success: function(msg){
+            		msgShow('系统提示', '恭喜，密码修改成功！<br>您的新密码为：' + msg, 'info');
+                    $newpass.val('');
+                    $rePass.val('');
+                    close();
+            	}
+            });
 
-            $.post('/ajax/editpassword.ashx?newpass=' + $newpass.val(), function(msg) {
+            /* $.post('../../admin/editpassword?newpass=' + $newpass.val(), function(msg) {
                 msgShow('系统提示', '恭喜，密码修改成功！<br>您的新密码为：' + msg, 'info');
                 $newpass.val('');
                 $rePass.val('');
                 close();
-            })
+            }) */
             
         }
 
@@ -105,7 +117,15 @@
                 $.messager.confirm('系统提示', '您确定要退出本次登录吗?', function(r) {
 
                     if (r) {
-                        location.href = '/ajax/loginout.ashx';
+                        $.ajax({
+                        	type: "get",
+                        	url: "../../admin/logout",
+                        	contentType : "application/x-www-form-urlencoded;charset=UTF-8",
+                        	async : false,
+                        	success: function(){
+                        		location.reload();
+                        	}
+                        })
                     }
                 });
 
@@ -123,13 +143,13 @@
 <body class="easyui-layout" style="overflow-y: hidden"  scroll="no">
 <noscript>
 <div style=" position:absolute; z-index:100000; height:2046px;top:0px;left:0px; width:100%; background:white; text-align:center;">
-    <img src="images/noscript.gif" alt='抱歉，请开启脚本支持！' />
+    <img src="../admin/images/noscript.gif" alt='抱歉，请开启脚本支持！' />
 </div></noscript>
     <div region="north" split="true" border="false" style="overflow: hidden; height: 30px;
-        background: url(images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;
+        background: url(../admin/images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;
         line-height: 20px;color: #fff; font-family: Verdana, 微软雅黑,黑体">
         <span style="float:right; padding-right:20px;" class="head">欢迎 16素材 <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a></span>
-        <span style="padding-left:10px; font-size: 16px; "><img src="images/blocks.gif" width="20" height="20" align="absmiddle" /> 16素材网  www.16sucai.com</span>
+        <span style="padding-left:10px; font-size: 16px; "><img src="../admin/images/blocks.gif" width="20" height="20" align="absmiddle" /> 16素材网  www.16sucai.com</span>
     </div>
     <div region="south" split="true" style="height: 30px; background: #D2E0F2; ">
         <div class="footer">By 疯狂秀才 Email:bjhxl@59ibox.cn</div>
@@ -187,6 +207,7 @@
 		<div class="menu-sep"></div>
 		<div id="mm-exit">退出</div>
 	</div>
+
 
 </body>
 </html>

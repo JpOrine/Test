@@ -37,7 +37,7 @@ $(function(){
 					if (false == data.result) {
 						alert("用户名或者密码错误，请重新登录！");
 					} else if (true == data.result) {
-						var indexUrl = window.location.protocol+"//"+window.location.host+"/cake/admin/index.html";
+						var indexUrl = window.location.protocol+"//"+window.location.host+"/cake/html/admin/index.html";
 						window.location = indexUrl;
 					}
 				},

@@ -13,7 +13,8 @@
 <base href="<%=basePath %>" >
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>爱心蛋糕</title>
-<link rel="stylesheet" type="text/css" href="<%=path %>admin/css/admin.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/admin/default.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/admin/admin.css">
 </head>
 <body>
 	<div id="slick-login">
@@ -25,6 +26,6 @@
         <input type="submit" id="loginAdmin" value="Log In">
     </div>
 </body>
-<script type="text/javascript" src="<%=basePath %>common/jquery.min.js"></script>
-<script type="text/javascript" src="<%=basePath %>admin/js/login.js"></script>
+<script type="text/javascript" src="<%=basePath %>js/jquery.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>js/admin/login.js"></script>
 </html>
